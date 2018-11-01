@@ -1,0 +1,62 @@
+{
+  "name": "vscode-gnformat",
+  "displayName": "GNFormat",
+  "version": "0.0.2",
+  "license": "MIT",
+  "publisher": "persidskiy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/persidskiy/vscode-gnformat"
+  },
+  "engines": {
+    "vscode": "^1.26.0"
+  },
+  "categories": [
+    "Formatters",
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:gn"
+  ],
+  "keywords": [
+    "gn",
+    "gnformat",
+    "chrome",
+    "chromium"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "gn",
+        "aliases": [
+          "GN"
+        ],
+        "extensions": [
+          "gn"
+        ]
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "GNFormat Configuration",
+      "properties": {
+        "gnformat.path": {
+          "type": "string",
+          "default": "gn",
+          "description": "The location of gn."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install && yarn compile",
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "typescript": "^3.0.1",
+    "vscode": "^1.1.21"
+  }
+}
