@@ -45,7 +45,7 @@
         "gnformat.path": {
           "type": "string",
           "default": "gn",
-          "description": "The location of gn."
+          "description": "Location of gn binary"
         }
       }
     }

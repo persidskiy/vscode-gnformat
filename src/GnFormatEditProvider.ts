@@ -13,11 +13,8 @@ export class GnFormatEditProvider implements
     const input = document.getText();
     var newContents = null;
     try {
-      newContents = childProcess
-                        .execFileSync(
-                            Settings.gnPath(), ['format', '--stdin'],
-                            {encoding: 'utf8', input})
-                        .slice(0, -1);
+      newContents = childProcess.execFileSync(
+          Settings.gnPath(), ['format', '--stdin'], {encoding: 'utf8', input});
     } catch (error) {
       vscode.window.showErrorMessage(error.message)
       return [];
